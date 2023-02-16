@@ -1,54 +1,248 @@
 {% extends "base.html" %}
 {% block content %}
 {% load static %} 
-<div id="intro" class="p-5 text-center bg-light">
-    <h1 class="mb-0 h1">{{ DetailView.name }}</h1>
-  </div>
+
+
+
 
   <main class="mt-4 mb-5">
     <div class="container">
       <div class="row">
         <div class="col-sm-2">
           {% block rightsidebar %} 
-          {% include 'sidebar.html' %} 
+          {% include 'test.html' %} 
           {% endblock rightsidebar %}
         </div>
         <div class="col-sm-8">
+          <section class="border-bottom mb-4">
+                  <p> <span class="badge rounded-pill bg-warning ">  
+                        <a href={% url 'TOPLIST' %} class="text-decoration-none link-dark"> Home </a> 
+                      </span> /  
+                    <span class="badge rounded-pill bg-warning "> 
+                        <a href="{% url 'parent_cat' DetailView.parent_cat %}" class="text-decoration-none link-dark" > {{DetailView.parent_cat}} </a>  
+                    </span> /
+                    <span class="badge rounded-pill bg-warning ">
+                      <a href="{% url 'child_cat' DetailView.parent_cat DetailView.child_cat %}" class="text-decoration-none link-dark" > {{DetailView.child_cat}} </a>
+                    </span>
+                  </p>
+              </section>
+              <div id="intro" class="p-2 text-center">
+            <h1 class="mb-0 h1">{{ DetailView.name }}</h1>
+          </div>
                 <section class="border-bottom mb-4">
-                  <img src={{ DetailView.thumbnail.url }} class="img-fluid shadow-2-strong rounded-5 mb-4" alt="" />
+                  <img src={{ DetailView.thumbnail.url }} class="img-fluid shadow-2-strong rounded-5 mb-4 mt-4" alt="" />
                 </section>
+                
+                <div class="container">
                 <section> 
-                  <p> <strong> {{ DetailView.description}} </strong> </p>
-                    <section class="border-top mb-4">
-
+                  <p>  {{ DetailView.description}} </p>
+                </section>
+              ``</div>
+                <section class="border-top mb-4">
                       <div class="container">
-                        <div class="row">
+                        {% comment %} 10 {% endcomment %}
+                            <div class="row">
+                                <div class="col">
+                                  <div class="row mt-2">
+                                        <h1 class="display-6"> 
+                                          <strong>
+                                            {% if DetailView.is_affiliate %} 
+                                            <a href="#">10. {{ DetailView.title_number_10 }}</a>
+                                            {% else %}
+                                            10.{{ DetailView.title_number_10 }}
+                                            {% endif %} 
+                                          </strong>
+                                        </h1>   
+                                    </div>
+                                    <div class="row mt-2">
+                                      <img src={{ DetailView.img_number_10.url }} alt="image" />
+                                    </div>
+                                    <div class="row mt-4">
+                                      <p>  {{ DetailView.desc_number_10 }} 
+                                      </p> 
+                                    </div>   
+                                </div>
+                                <hr class="hr" />
+                              </div>
+                        {% comment %} 09 {% endcomment %}
+                              <div class="row">
+                                <div class="col">
+                                  <div class="row mt-2">
+                                        <h1 class="display-6"> 
+                                          <strong> 
+                                              09.{{ DetailView.title_number_9 }}
+                                          </strong>
+                                        </h1>
+                                    </div>
+                                    <div class="row mt-2">
+                                      <img src={{ DetailView.img_number_9.url }} alt="image" />
+                                    </div>
+                                    <div class="row mt-4">
+                                      <p>    {{ DetailView.desc_number_9 }} </p>
+                                    </div>   
+                                </div>
+                              </div>
+                        {% comment %} 08 {% endcomment %}
+                              <div class="row">
+                                <div class="col">
+                                  <div class="row mt-2">
+                                        <h1 class="display-6"> 
+                                          <strong> 
+                                              08.{{ DetailView.title_number_8 }}
+                                          </strong>
+                                        </h1>
+                                         
+                                    </div>
+                                    <div class="row mt-2">
+                                      <img src={{ DetailView.img_number_8.url }} alt="image" />
+                                    </div>
+                                    <div class="row mt-4">
+                                      <p>    {{ DetailView.desc_number_8 }} </p>
+                                    </div>   
+                                </div>
+                              </div>
+                          {% comment %} 07 {% endcomment %}
+                          <div class="row">
                             <div class="col">
-                               <div class="row">
+                              <div class="row mt-2">
                                     <h1 class="display-6"> 
                                       <strong> 
-                                        10. {{ DetailView.number_10_title }} 
+                                          07.{{ DetailView.title_number_7 }}
                                       </strong>
                                     </h1>
+                                     
                                 </div>
-                                <div class="row">
-                                  <p>    {{ DetailView.number_10_desc }} </p>
+                                <div class="row mt-2">
+                                  <img src={{ DetailView.img_number_7.url }} alt="image" />
                                 </div>
-                            </div>
-                            <div class="col"> {{ DetailView.number_10_img }}
-                              <img src={{ DetailView.number_10_img }} alt="image" />
+                                <div class="row mt-4">
+                                  <p>    {{ DetailView.desc_number_7 }} </p>
+                                </div>   
                             </div>
                           </div>
+
+                          {% comment %} 06 {% endcomment %}
+                          <div class="row">
+                            <div class="col">
+                              <div class="row mt-2">
+                                    <h1 class="display-6"> 
+                                      <strong> 
+                                          06.{{ DetailView.title_number_6 }}
+                                      </strong>
+                                    </h1>
+                                     
+                                </div>
+                                <div class="row mt-2">
+                                  <img src={{ DetailView.img_number_6.url }} alt="image" />
+                                </div>
+                                <div class="row mt-4">
+                                  <p>    {{ DetailView.desc_number_6 }} </p>
+                                </div>   
+                            </div>
+                          </div>
+
+                          {% comment %} 05 {% endcomment %}
+                          <div class="row">
+                            <div class="col">
+                              <div class="row mt-2">
+                                    <h1 class="display-6"> 
+                                      <strong> 
+                                          05.{{ DetailView.title_number_5 }}
+                                      </strong>
+                                    </h1>
+                                     
+                                </div>
+                                <div class="row mt-2">
+                                  <img src={{ DetailView.img_number_5.url }} alt="image" />
+                                </div>
+                                <div class="row mt-4">
+                                  <p>    {{ DetailView.desc_number_5 }} </p>
+                                </div>   
+                            </div>
+                          </div>
+
+                          {% comment %} 04 {% endcomment %}
+                          <div class="row">
+                            <div class="col">
+                              <div class="row mt-2">
+                                    <h1 class="display-6"> 
+                                      <strong> 
+                                          04.{{ DetailView.title_number_4 }}
+                                      </strong>
+                                    </h1>
+                                     
+                                </div>
+                                <div class="row mt-2">
+                                  <img src={{ DetailView.img_number_4.url }} alt="image" />
+                                </div>
+                                <div class="row mt-4">
+                                  <p>    {{ DetailView.desc_number_4 }} </p>
+                                </div>   
+                            </div>
+                          </div>
+
+                          {% comment %} 03 {% endcomment %}
+                          <div class="row">
+                            <div class="col">
+                              <div class="row mt-2">
+                                    <h1 class="display-6"> 
+                                      <strong> 
+                                          03.{{ DetailView.title_number_3 }}
+                                      </strong>
+                                    </h1>
+                                     
+                                </div>
+                                <div class="row mt-2">
+                                  <img src={{ DetailView.img_number_3.url }} alt="image" />
+                                </div>
+                                <div class="row mt-4">
+                                  <p>    {{ DetailView.desc_number_3 }} </p>
+                                </div>   
+                            </div>
+                          </div>
+
+                          {% comment %} 02 {% endcomment %}
+                          <div class="row">
+                            <div class="col">
+                              <div class="row mt-2">
+                                    <h1 class="display-6"> 
+                                      <strong> 
+                                          02.{{ DetailView.title_number_2 }}
+                                      </strong>
+                                    </h1>
+                                     
+                                </div>
+                                <div class="row mt-2">
+                                  <img src={{ DetailView.img_number_2.url }} alt="image" />
+                                </div>
+                                <div class="row mt-4">
+                                  <p>    {{ DetailView.desc_number_2 }} </p>
+                                </div>   
+                            </div>
+                          </div>
+
+                          {% comment %} 01 {% endcomment %}
+                          <div class="row">
+                            <div class="col">
+                              <div class="row mt-2">
+                                    <h1 class="display-6"> 
+                                      <strong> 
+                                          01.{{ DetailView.title_number_1 }}
+                                      </strong>
+                                    </h1>
+                                     
+                                </div>
+                                <div class="row mt-2">
+                                  <img src={{ DetailView.img_number_1.url }} alt="image" />
+                                </div>
+                                <div class="row mt-4">
+                                  <p>    {{ DetailView.desc_number_1 }} </p>
+                                </div>   
+                            </div>
+                          </div>
+
                       </div>
                         
-                        <h5> 09. {{ DetailView.number_09_title }} </h5> 
-                            {{ DetailView.number_09_img }}
-                        <p>   {{ DetailView.number_09_desc }} </p>
-
-                        <h5> 08. {{ DetailView.number_08_title }} </h5> 
-                            {{ DetailView.number_08_img }}
-                        <p>   {{ DetailView.number_08_desc }} </p>    
-                    </section>  
                 </section>
 
           <section class="border-bottom mb-4 pb-4">
@@ -66,16 +260,14 @@
             <!-- Comment -->
             <div class="row mb-4">
               <div class="col-2">
-                <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(24).jpg"
+                <img src="{{ DetailView.img_number_1.url }}"
                   class="img-fluid shadow-1-strong rounded-5" alt="" />
               </div>
 
               <div class="col-10">
-                <p class="mb-2"><strong>Marta Dolores</strong></p>
+                <p class="mb-2"><strong>{{ DetailView.name }} </strong></p>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio est ab iure
-                  inventore dolorum consectetur? Molestiae aperiam atque quasi consequatur aut?
-                  Repellendus alias dolor ad nam, soluta distinctio quis accusantium!
+                  {{ DetailView.description | slice:200 }} ..
                 </p>
               </div>
             </div>
@@ -87,7 +279,7 @@
         <!--Grid column-->
         <div class="col-sm-2">
           {% block leftsidebar %} 
-          {% include 'sidebar.html' %} 
+          {% include 'test.html' %} 
           {% endblock leftsidebar %}
         </div>
         <!--Grid column-->

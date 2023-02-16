@@ -11,13 +11,10 @@ from . import views
 urlpatterns = [
     path('',views.PostView),
     path('TOPLIST/',views.PostView, name="TOPLIST"),
-    path('<slug:slug>/',views.DetailView, name="post_detail"),
-    path('india/trending/',IndiaTrending.as_view(), name="IndiaTrending"),
-    path('<str:parent_cat>',Parent_Cat.as_view(), name="parent_cat"),
-    #path('<str:parent_cat>/<str:child_cat>/',Child_Cat.as_view(), name="child_cat"),
-    
-    
-    
+    path('<slug:slug>/',DetailView.as_view(), name="post_detail"),
+    path('<str:category>/trending/',GetTrending.as_view(), name="GetTrending"),
+    path('TOPLIST/<str:parent_cat>',Parent_Cat.as_view(), name="parent_cat"),  
+    path('TOPLIST/<str:parent_cat>/<str:child_cat>',Child_cat.as_view(), name="child_cat"),      
 ]
 
 if settings.DEBUG:
